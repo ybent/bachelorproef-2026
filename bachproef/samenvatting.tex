@@ -1,0 +1,54 @@
+%%=============================================================================
+%% Samenvatting
+%%=============================================================================
+
+% TODO: De "abstract" of samenvatting is een kernachtige (~ 1 blz. voor een
+% thesis) synthese van het document.
+%
+% Een goede abstract biedt een kernachtig antwoord op volgende vragen:
+%
+% 1. Waarover gaat de bachelorproef?
+% 2. Waarom heb je er over geschreven?
+% 3. Hoe heb je het onderzoek uitgevoerd?
+% 4. Wat waren de resultaten? Wat blijkt uit je onderzoek?
+% 5. Wat betekenen je resultaten? Wat is de relevantie voor het werkveld?
+%
+% Daarom bestaat een abstract uit volgende componenten:
+%
+% - inleiding + kaderen thema
+% - probleemstelling
+% - (centrale) onderzoeksvraag
+% - onderzoeksdoelstelling
+% - methodologie
+% - resultaten (beperk tot de belangrijkste, relevant voor de onderzoeksvraag)
+% - conclusies, aanbevelingen, beperkingen
+%
+% LET OP! Een samenvatting is GEEN voorwoord!
+
+%%---------- Nederlandse samenvatting -----------------------------------------
+%
+% TODO: Als je je bachelorproef in het Engels schrijft, moet je eerst een
+% Nederlandse samenvatting invoegen. Haal daarvoor onderstaande code uit
+% commentaar.
+% Wie zijn bachelorproef in het Nederlands schrijft, kan dit negeren, de inhoud
+% wordt niet in het document ingevoegd.
+
+\IfLanguageName{english}{%
+\selectlanguage{dutch}
+\chapter*{Samenvatting}
+\lipsum[1-4]
+\selectlanguage{english}
+}{}
+
+%%---------- Samenvatting -----------------------------------------------------
+% De samenvatting in de hoofdtaal van het document
+
+\chapter*{\IfLanguageName{dutch}{Samenvatting}{Abstract}}
+
+Dit onderzoek richt zich op de beveiligingsuitdagingen waarmee kleine en middelgrote ondernemingen (kmo's) worden geconfronteerd bij de integratie van IoT-toestellen in hun netwerk. Omdat deze apparaten vaak over een beperkte rekenkracht beschikken, worden de beveiligingsmaatregelen achterwege gelaten. Het doel van deze bachelorproef is om te evalueren hoe de open-source Intrusion Detection Systems (IDS) Suricata en Zeek optimaal kunnen worden ingezet en geconfigureerd op een budgetvriendelijke Single-Board Computer (SBC), zoals een Raspberry Pi 4.
+
+Centraal hierbij staat de onderzoeksvraag: \textit{"Hoe kan men Suricata en Zeek als IDS optimaliseren voor een gesimuleerde IoT-omgeving in een klein bedrijf, met de nadruk op resourcegebruik, vlotte schaalbaarheid en detectienauwkeurigheid?"}
+
+Om een gerechtvaardigd antwoord te bieden op de onderzoeksvraag, werd een representatieve Proof-of-Concept (PoC) netwerkomgeving ontworpen. Deze bestond uit een lokaal geïsoleerd IoT-netwerk met een MQTT-broker, een Zigbee-gateway en diverse fysieke IoT-eindpunten. Voor beide detectiesystemen werden op maat gemaakte detectieregels ontwikkeld om specifieke IoT-aanvallen, zoals Denial of Service (SYN floods), misvormde payloads en protocolafwijkingen, op te sporen. Tijdens de testfase werd het resourcegebruik van beide systemen structureel gemeten gedurende een rusttoestand, een normale operationele toestand en een aanvalstoestand.
+Uit de resultaten bleek dat een Single-Board Computer ideaal en krachtig genoeg is om een klein bedrijfsnetwerk te monitoren. Bij de vergelijking tussen de twee systemen kwamen er duidelijke verschillen in het resourcegerbruik naar voren. Suricata is zeer gebruiksvriendelijk en eenvoudig in te stellen, maar heeft als nadeel dat het meer RAM-geheugen verbruikt tijdens een aanval. Zeek daarentegen maakt veel efficiënter gebruik van RAM en werkt stabieler, hoewel het CPU-verbruik piekte tijdens de aanvalsscenario’s. Bovendien is Zeek moeilijker in te stellen als een IDS. Kortom, beide systemen bieden kmo’s een manier om kostenefficiënt hun netwerk te beveiligen, waarbij de uiteindelijke keuze voornamelijk afhangt van de beschikbare technische expertise van de netwerkbeheerder.
+

@@ -1,0 +1,61 @@
+%%=============================================================================
+%% Inleiding
+%%=============================================================================
+
+\chapter{\IfLanguageName{dutch}{Inleiding}{Introduction}}%
+\label{ch:inleiding}
+
+Het onderzoek begint met een uitgebreide literatuurstudie waarin de nodige componenten van Internet of Things (IoT) worden onderzocht. Het doel is het vinden van geschikte open-source Intrusion Detection System (IDS) dat op laag-vermogen computers (zoals een Raspberry Pi) kan draaien zonder dat dit ten koste gaat van de functionaliteit en prestaties van de netwerkmonitoring.
+\vspace{0.7em}
+
+Het is cruciaal om niet alleen te begrijpen wat IoT-apparaten zijn, maar ook hoe ze communiceren en verbinding maken met het netwerk. Daarom zullen we ons ook verdiepen in de verschillende communicatieprotocollen binnen dit ecosysteem. Deze diepgaande studie van zowel de apparatuur als de protocollen zal ons helpen bij het uitvoeren van de Proof-of-Concept en de uiteindelijke implementatie van het gekozen IDS.
+
+
+
+\section{\IfLanguageName{dutch}{Probleemstelling}{Problem Statement}}%
+\label{sec:probleemstelling}
+
+
+In dit tijdperk is vrijwel elk elektronisch apparaat verbonden om processen te automatiseren en informatie draadloos te verzenden met als enig doel het verbeteren van de levenskwaliteit en het gebruikerscomfort. Echter, door hun compact formaat en ernstige resourcebeperking is de implementatie van een robuuste beveiligingen vaak onhaalbaar of wordt deze zelfs volledig weggelaten.
+\vspace{0.7em}
+
+Het is precies deze combinatie van computationele beperking en constante netwerkcommunicatie die deze apparaten tot waardevolle aanvalspunten maakt voor aanvallers. Het is dit gebrek aan beveiliging en de behoefte aan betaalbare en toegankelijke veiligheidssystemen dat dit onderzoek motiveert om een geschikte en schaalbare oplossing te vinden. Het centraal probleem is dan ook dat KMO’s die afhankelijk zijn van deze technologieën, verhoogde beveiligingsrisico’s lopen als ze niet de expertise of budget beschikken voor gelicentieerde beveiligingssoftware te implementeren die in staat is om het unieke verkeerspatroon van IoT-apparaten te monitoren.
+
+
+\section{\IfLanguageName{dutch}{Onderzoeksvraag}{Research question}}%
+\label{sec:onderzoeksvraag}
+
+De hoofdvraag van deze dissertatie is: ‘Hoe kan men Suricata en Zeek als intrusion detection systems (IDS) optimaliseren voor een gesimu- leerde IoT omgeving in een klein bedrijf met nadruk op resourcegebruik (CPU/geheugen), vlotte schaal- baarheid en detectienauwkeurigheid?’ Om een antwoord te krijgen op de onderzoeksvraag, kunnen volgende deelvragen gesteld worden:
+
+\begin{enumerate}
+	\item Wat zijn de meest voorkomende cyberdreigingen bij IoT-apparaten voor kleine bedrijven?
+	\item Welke soorten IoT-apparaten en netwerkdreigingen zijn typisch voor kleine bedrijven?
+	\item Wat is het gemiddelde resourcegebruik van Suricata en Zeek bij lightweight hardware?
+	\item Welke configuraties van Suricata en Zeek minimaliseren resourcegebruik in IoT-netwerken?
+	\item Hoe eenvoudig zijn Suricata en Zeek te implementeren en beheren binnen een IoT-netwerk in een klein bedrijf?
+	\item Hoe presteren Suricata en Zeek bij toename van het aantal IoT-apparaten?
+	\item Wat is de detectienauwkeurigheid van Suricata versus Zeek bij het identificeren van IoT-dreigingen?
+\end{enumerate}
+
+\section{\IfLanguageName{dutch}{Onderzoeksdoelstelling}{Research objective}}%
+\label{sec:onderzoeksdoelstelling}
+
+Het doel van deze bachelorproef is het opzetten van een proof-of-concept die IT-experten in staat stellen om een intrusion detection system (IDS) te implementeren in hun netwerk die gefocust is voor IoT toestellen en hun meest voorkomen cyberaanvallen. Wij gaan onderzoeken en evalueren hoe twee open-source IDS, namelijk Suricata en Zeek, presteren in een IoT omgeving die typisch is voor kleine bedrijven. Het doel is om een beter inzicht te krijgen in welke van de twee systemen het meest geschikt is voor implementatie in omgevingen met beperkte middelen, zoals kleine bedrijven, en om aanbevelingen te doen voor het optimaliseren van de configuratie en het gebruik van deze systemen.
+\vspace{6em}
+
+\section{\IfLanguageName{dutch}{Opzet van deze bachelorproef}{Structure of this bachelor thesis}}%
+\label{sec:opzet-bachelorproef}
+
+% Het is gebruikelijk aan het einde van de inleiding een overzicht te
+% geven van de opbouw van de rest van de tekst. Deze sectie bevat al een aanzet
+% die je kan aanvullen/aanpassen in functie van je eigen tekst.
+
+De rest van deze bachelorproef is als volgt opgebouwd:
+
+In Hoofdstuk~\ref{ch:stand-van-zaken} wordt een overzicht gegeven van de stand van zaken binnen het onderzoeksdomein, op basis van een literatuurstudie.
+
+In Hoofdstuk~\ref{ch:methodologie} wordt de methodologie toegelicht en worden de gebruikte onderzoekstechnieken besproken om een antwoord te kunnen formuleren op de onderzoeksvragen.
+
+% TODO: Vul hier aan voor je eigen hoofstukken, één of twee zinnen per hoofdstuk
+
+In Hoofdstuk~\ref{ch:conclusie}, tenslotte, wordt de conclusie gegeven en een antwoord geformuleerd op de onderzoeksvragen. Daarbij wordt ook een aanzet gegeven voor toekomstig onderzoek binnen dit domein.

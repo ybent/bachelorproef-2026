@@ -1,0 +1,30 @@
+%%=============================================================================
+%% Conclusie
+%%=============================================================================
+
+\chapter{Conclusie}%
+\label{ch:conclusie}
+
+% TODO: Trek een duidelijke conclusie, in de vorm van een antwoord op de
+% onderzoeksvra(a)g(en). Wat was jouw bijdrage aan het onderzoeksdomein en
+% hoe biedt dit meerwaarde aan het vakgebied/doelgroep? 
+% Reflecteer kritisch over het resultaat. In Engelse teksten wordt deze sectie
+% ``Discussion'' genoemd. Had je deze uitkomst verwacht? Zijn er zaken die nog
+% niet duidelijk zijn?
+% Heeft het onderzoek geleid tot nieuwe vragen die uitnodigen tot verder 
+%onderzoek?
+
+Het centrale doel van deze bachelorproef was het beantwoorden van de vraag: \textit{"Hoe kan men Suricata en Zeek als intrusion detection systems (IDS) optimaliseren voor een gesimuleerde IoT omgeving in een klein bedrijf met nadruk op resourcegebruik, vlotte schaalbaarheid en detectienauwkeurigheid?"} Uit het uitgevoerde onderzoek blijkt dat beide open-source systemen succesvol kunnen worden geïmplementeerd binnen de beperkingen van een kleine tot middelgrote onderneming (kmo), mits de architectuur zorgvuldig wordt ontworpen.
+
+Een belangrijk deel van dit onderzoek richtte zich op de haalbaarheid van het gebruik van een Raspberry Pi 4 als een NIDS. Uit de meetresultaten (Fase 5) blijkt dat een SBC volledig voldoet voor deze taak. Zelfs tijdens de zwaarste stress-tests (zoals een actieve SYN-flood) bleef het CPU-verbruik van beide systemen ruim onder de maximale capaciteit van de Raspberry Pi (4 GB). 
+
+Hoewel het RAM-verbruik van Suricata enorm toenam bij het laden van de volledige enterprise-regelset en het verwerken van aanvallen (een stijging van 41,17\% naar 1527 MB), bleef dit ruim binnen de grenzen van de gebruikte hardware. Zeek vertoonde een veel stabieler geheugenprofiel dankzij de efficiënte, event-driven architectuur. De conclusie is dan ook dat het, afhankelijk van het aantal aangesloten apparaten in het netwerk, niet langer nodig is om dure, krachtige x86-servers in te zetten voor netwerkmonitoring in een klein IoT-netwerk.
+Wat betreft de schaalbaarheid en het implementatiegemak voor kmo's met beperkte IT-kennis, is er een duidelijk contrast tussen beide tools. Suricata bleek simpeler te zijn, de syntaxis van de regels is logisch, makkelijk te begrijpen en het toevoegen van regels bedoeld voor IoT-dreigingen vereist weinig programmeerkennis. Dit maakt Suricata een perfecte NIDS voor kmo’s die een plug-and-play-oplossing zoeken.  Zeek daarentegen heeft een leercurve. Het schrijven van scripts bedoeld voor een IoT-omgeving vereist een dieper begrip van netwerkprotocollen en scriptlogica. Maar een sterk punt van Zeek is het nauwlettend monitoren van het netwerk. Wanneer er een afwijking optreedt die buiten de verwachte norm valt, kan Zeek onmiddellijk en netwerkbeheerder waarschuwen.
+Een opmerkelijk aspect dat in dit onderzoek niet werd opgenomen, is het meten van de detectienauwkeurigheid van beide IDS-tools. Aangezien we in deze context zowel de rol van aanvaller als die van verdediger hebben aangenomen, was het meten van een traditionele ‘detectiegraad’ niet relevant. Die zou immers kunstmatig op 100% vastgesteld worden.
+
+In plaats daarvan hebben we de focus verlegd naar de functionele detectie en de architecturale kracht van de tools. Hierbij blijkt dat Zeek, dat standaard wordt gezien als een passieve Network Security Monitor (NSM) voor post-incident analyse, uiterst goed kan functioneren als een real-time IDS door het genereren van \texttt{NOTICE} alerts in de \texttt{notice.log}. Het voordeel van deze aanpak is dat Zeek een meer proactieve detectiemethodologie biedt in vergelijking met Suricata. Bij Suricata moet men wachten tot een nieuwe, bekende aanval plaatsvindt waarvoor een handtekening bestaat. Bij Zeek kan men na een reëel incident de verzamelde pcap-data diepgaand gaan analyseren, de anomaliepatroon identificeren, en dit direct omzetten in een werkend Zeek-script. Bij een volgend voorval zal de live NIDS-engine dit patroon direct detecteren en alerten. 
+Wanneer deze leercyclus wordt toegepast, kan Zeek een uitzonderlijk krachtig schild zijn.
+
+Natuurlijk kent deze proof-of-concept ook beperkingen die kritische reflectie vereisen. De gesimuleerde IoT-omgeving was relatief klein en gecontroleerd. In een echt kmo-netwerk met tientallen of honderden verschillende IoT-apparaten, gemengd met normaal kantoorverkeer, zal het "ruisniveau" aanzienlijk hoger zijn. Het is onduidelijk hoe de Raspberry Pi en specifiek de I/O-schrijfsnelheden van de SD-kaart presteren onder een constante, zware load van duizenden IoT-toestellen. 
+Een logische volgende stap in dit onderzoek zou zijn om deze opzet op grotere schaal te testen met echt netwerkverkeer van een kmo. Er zou ook onderzoek kunnen worden gedaan naar het automatiseren van de Zeek-leercyclus, “kan machine learning de logbestanden uit de NSM-fase analyseren en automatisch Zeek-scripts genereren die verdacht gedrag blokkeren, zonder dat een netwerkbeheerder handmatig code hoeft te schrijven?” Concluderend biedt deze bachelorscriptie een praktisch en herhaalbaar stappenplan voor het MKB. Het bewijst dat men niet hoeft te vertrouwen op dure commerciële oplossingen om het eigen netwerkverkeer goed te monitoren.
+
