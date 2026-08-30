@@ -28,6 +28,8 @@
 \RequirePackage{wrapfig} % Allows wrapping text around tables and figures
 \RequirePackage[export]{adjustbox}
 
+
+
 %%============================================================================
 %% Process options
 %%============================================================================
